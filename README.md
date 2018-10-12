@@ -8,9 +8,7 @@ For a complete documentation of this implementation, check out the [blog post](h
 
 ## Dependencies
 
-- Python 3.x
-- Numpy
-- Tensorflow 1.10.1
+root folder contains environment setup file - environment.yml
 
 ## Downloads
 
@@ -18,7 +16,7 @@ For a complete documentation of this implementation, check out the [blog post](h
 
 Pre-trained model.
 
-- [checkpoints](https://www.dropbox.com/sh/s7sx69pqjhrk0s4/AACXWCRd9JJ0zvcvDES9G3sba?dl=0)
+- [checkpoints](https://www.dropbox.com/sh/s7sx69pqjhrk0s4/AACXWCRd9JJ0zvcvDES9G3sba?dl=0) - folder name 16645
 
 Place the checkpoints folder inside `./tboard_logs`. If the folder **does not** exist, create it.
 
@@ -58,32 +56,19 @@ Also, be aware that originally Deeplab_v3 performs random crops of size **513x51
 
 ## Datasets
 
-To create the dataset, first make sure you have the [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) and/or the [Semantic Boundaries Dataset and Benchmark](http://home.bharathh.info/pubs/codes/SBD/download.html) datasets downloaded.
+Dataset used is https://ivrl.epfl.ch/research-2/research-downloads/supplementary_material-cvpr11-index-html/
+
+This dataset consists of 477 images in 9 categories captured in RGB and Near-infrared (NIR). The images were captured using separate exposures from modified SLR cameras, using visible and NIR filters. For more info on NIR photography, see the references below. The scene categories are: country, field, forest, indoor, mountain, oldbuilding, street, urban, water.
 
 **Note: You do not need both datasets.**
  - If you just want to test the code with one of the datasets (say the SBD), run the notebook normally, and it should work.
 
-After, head to ```dataset/``` and run the ```CreateTfRecord.ipynb``` notebook.
+After, head to ```dataset/``` and run the ```CreateTest_TfRecord.ipynb``` notebook.
 
-The ```custom_train.txt``` file contains the name of the images selected for training. This file is designed to use the Pascal VOC 2012 set as a **TESTING** set. Therefore, it doesn't contain any images from the VOC 2012 val dataset. For more info, see the **Training** section of [Deeplab Image Semantic Segmentation Network](https://sthalles.github.io/deep_segmentation_network/).
+The ```custom_test.txt``` file contains the name of the images selected for training. This file is designed to use the Pascal VOC 2012 set as a **TESTING** set. Therefore, it doesn't contain any images from the VOC 2012 val dataset. For more info, see the **Training** section of [Deeplab Image Semantic Segmentation Network](https://sthalles.github.io/deep_segmentation_network/).
 
 Obs. You can skip that part and direct download the datasets used in this experiment - See the **Downloads** section
 
-## Serving
-
-For full documentation on serving this Semantic Segmentation CNN, refer to [How to deploy TensorFlow models to production using TF Serving](https://sthalles.github.io/serving_tensorflow_models/).
-
-All the serving scripts are placed inside: ```./serving/```.
-
-To export the model and to perform client requests do the following:
-
-1. Create a python3 virtual environment and install the dependencies from the ```serving_requirements.txt``` file;
-
-2. Using the python3 env, run ```deeplab_saved_model.py```. The exported model should reside into ```./serving/model/```;
-
-3. Create a python2 virtual environment and install the dependencies from the ```client_requirements.txt``` file;
-
-4. From the python2 env, run the ```deeplab_client.ipynb``` notebook;
 
 ## Results
 
