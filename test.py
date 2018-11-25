@@ -1,6 +1,7 @@
 import tensorflow as tf
 print("TF version:", tf.__version__)
 import numpy as np
+import pylab
 from matplotlib import pyplot as plt
 import network
 slim = tf.contrib.slim
@@ -136,9 +137,9 @@ with tf.Session() as sess:
 				# label_image = label_image[indices]
 				# pred_image = pred_image[indices]
 				# input_image = input_image[indices]
-				if (i == 10):
-					print("Breaking from loop..")
-					break
+				# if (i == 10):
+				# 	print("Breaking from loop..")
+				# 	break
 				# print(input_image.shape[0])
 				# print(label_image.shape[0])
 				# print(pred_image.shape[0])
@@ -166,9 +167,9 @@ with tf.Session() as sess:
 
 				ax1.imshow(input_image.astype(np.uint8))
 				ax3.imshow(pred_image)
-
 				print('Image : ',i)
-				plt.show()
+				plt.savefig(str(i) + ".png")
+				# plt.show()
 			break
 
 		except tf.errors.OutOfRangeError:
