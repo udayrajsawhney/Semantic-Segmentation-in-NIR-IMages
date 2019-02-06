@@ -1,4 +1,3 @@
-<a href="https://doi.org/10.5281/zenodo.1248776"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1248776.svg" alt="DOI"></a>
 
 # DeepLab_V3 Image Semantic Segmentation Network
 
